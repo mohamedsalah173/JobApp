@@ -1,9 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ taglib prefix="ab" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isELIgnored="false"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.telusko.JobApp.model.JobPost" %>
-<%@ page import="com.telusko.JobApp.repo.JobRepo" %>
+<%@ page import="com.javaPractice.jobApp.model.JobPost" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <div class="container">
-        <a class="navbar-brand fs-1 fw-medium" href="#">Telusko Job Portal Web App</a>
+        <a class="navbar-brand fs-1 fw-medium" href="#">Job Portal Web App</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,18 +33,18 @@
     </div>
 </nav>
 
-<ab:set var="jobPosts" value="${jobPosts}" />
+<c:set var="jobPosts" value="${jobPosts}" />
 
 <div class="container mt-5">
     <h2 class="mb-4 text-center font-weight-bold">Job Post List</h2>
 
     <div class="row row-cols-2">
-        <ab:forEach var="jobPost" items="${jobPosts}">
+        <c:forEach var="jobPost" items="${jobPosts}">
             <div class="col mb-4">
                 <div class="card border-dark bg-dark text-white">
                     <div class="card-body">
                         <h5 class="card-title">${jobPost.postProfile}</h5>
-                         <p class="card-text">
+                        <p class="card-text">
                             <strong>Job-Id: </strong>
                             ${jobPost.postId}
                         </p>
@@ -60,9 +59,9 @@
                         <p class="card-text">
                             <strong>Tech Stack Required:</strong>
                             <ul>
-                                <ab:forEach var="tech" items="${jobPost.postTechStack}">
+                                <c:forEach var="tech" items="${jobPost.postTechStack}">
                                     <li>${tech}</li>
-                                </ab:forEach>
+                                </c:forEach>
                             </ul>
                         </p>
                     </div>
@@ -71,7 +70,7 @@
                     </div>
                 </div>
             </div>
-        </ab:forEach>
+        </c:forEach>
     </div>
 </div>
 
